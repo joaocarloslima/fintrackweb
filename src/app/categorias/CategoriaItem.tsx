@@ -1,5 +1,5 @@
+import DropdownActions from "@/components/DropdownActions";
 import { Icon } from "@/components/Icon";
-import { ChevronDown, Utensils } from "lucide-react";
 
 interface Categoria {
     id: number,
@@ -14,7 +14,8 @@ export function CategoriaItem(categoria: Categoria) {
                 <Icon name={categoria.icone} />
                 <span>{categoria.nome}</span>
             </div>
-            <ChevronDown />
+            
+            <DropdownActions />
         </div>
     )
 }
