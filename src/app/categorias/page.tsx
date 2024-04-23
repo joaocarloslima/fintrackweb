@@ -7,7 +7,7 @@ import Link from "next/link";
 
 export default async function Categorias() {
 
-  const categorias = await get()
+  const categorias: Array<Categoria> = await get()
 
   return (
     <main className="flex min-h-screen flex-col items-center">

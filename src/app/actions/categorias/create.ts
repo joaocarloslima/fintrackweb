@@ -2,7 +2,7 @@
 
 import { redirect } from "next/navigation"
 
-export async function create(formData: FormData){
+export async function create(prevState: any, formData: FormData){
     await new Promise(r => setTimeout(r, 4000))
 
     const data = {
@@ -14,7 +14,8 @@ export async function create(formData: FormData){
         method: "POST",
         body: JSON.stringify(data),
         headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/json",
+            "Accept-Language": "pt-br"
         }
     }
 
@@ -22,6 +23,13 @@ export async function create(formData: FormData){
 
     if (resp.ok){
         redirect("/categorias")
+    }
+
+    if (!resp.ok){
+        const json = await resp.json()
+        return {
+            messageNome: json.find((message: any) => message.campo == 'nome').mensagem
+        }
     }
 
 }
