@@ -4,6 +4,7 @@ import DropdownActions from "@/components/DropdownActions";
 import { Icon } from "@/components/Icon";
 import { destroy } from "../actions/categorias/destroy";
 import toast from "react-hot-toast";
+import Link from "next/link";
 
 interface Categoria {
     id: number,
@@ -33,6 +34,9 @@ export function CategoriaItem(categoria: Categoria) {
             </div>
 
             <button onClick={handleDelete}>apagar</button>
+            <Link href={"/categorias/" + categoria.id}>
+                editar
+            </Link>
             
             <DropdownActions 
                 onEdit={() => { console.log("editar ainda não implementado")}}

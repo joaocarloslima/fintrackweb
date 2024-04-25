@@ -2,6 +2,7 @@
 
 import {Dropdown, DropdownTrigger, DropdownMenu, DropdownItem, Button} from "@nextui-org/react";
 import { ChevronDown, Pencil, Trash } from "lucide-react";
+import { useRouter } from "next/navigation";
 import { MouseEventHandler } from "react";
 
 interface DropdownActionsProps {
@@ -10,7 +11,7 @@ interface DropdownActionsProps {
 }
 
 export default function DropdownActions({onEdit, onDelete} : DropdownActionsProps) {
-
+  const router = useRouter()
   return (
     <Dropdown>
       <DropdownTrigger>
@@ -21,7 +22,7 @@ export default function DropdownActions({onEdit, onDelete} : DropdownActionsProp
         </Button>
       </DropdownTrigger>
       <DropdownMenu aria-label="Static Actions">
-        <DropdownItem onClick={onEdit} key="edit" startContent={<Pencil size={16}/>}>
+        <DropdownItem onClick={() => router.push('/categorias/1')} key="edit" startContent={<Pencil size={16}/>}>
           editar
         </DropdownItem>
         <DropdownItem onClick={onDelete} key="delete" className="text-danger" color="danger" startContent={<Trash size={16}/>}>
