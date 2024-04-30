@@ -105,8 +105,8 @@ export default function Home() {
        <section className="grid grid-flow-col-dense  gap-5">
         { totais.map( t => <CardStats {...t} /> ) }
       </section>
-
-      <section className="flex gap-4">
+ 
+     {/* <section className="flex gap-4">
         <Card>
           <CardHeader>
             <BarChart />
@@ -116,23 +116,22 @@ export default function Home() {
             <BarChartCategorias />
           </CardBody>
         </Card>
-
         <Card>
           <CardHeader>
             <BarChart />
             <h3>Movimentações por mês</h3>
           </CardHeader>
           <CardBody>
-            {/* <LineChartMovimentacoes /> */}
+            <LineChartMovimentacoes />
           </CardBody>
         </Card>
-      </section>
+      </section>  */}
       
 
-      {/* <section>
+      <section>
         <h3 className="text-lg font-bold">Últimas movimentações</h3>
         <MovimentacaoTable data={ultimasMovimentacoes}  />
-      </section> */}
+      </section>
 
 
     </main>

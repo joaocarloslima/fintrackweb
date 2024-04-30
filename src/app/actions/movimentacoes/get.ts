@@ -1,11 +1,11 @@
 'use server'
 
-export async function get(categoria?: any, mes?: number, page?: number) {
+export async function getMovimentacoes(categoria?: any, mes?: number, page?: number) {
     if (!page) page = 1
     page = page - 1
 
     const queryParam = new URLSearchParams()
-    if (categoria) queryParam.append('categoria', categoria)
+    if (categoria) queryParam.append('categoriaNome', categoria)
     if (mes) queryParam.append('mes', mes.toString())
     queryParam.append('page', page.toString())
 

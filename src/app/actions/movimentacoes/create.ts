@@ -26,7 +26,7 @@ export async function create(prevState: any, formData: FormData){
         }
 
     }
-    const resp = await fetch("http:localhost:8080/movimentacao", options)
+    const resp = await fetch("http://localhost:8080/movimentacao", options)
 
     if (resp.ok){
         redirect("/movimentacoes")

@@ -7,7 +7,7 @@ import { Filter, Plus } from "lucide-react";
 import Link from "next/link";
 import { MovimentacaoItem } from "./MovimentacaoItem";
 import { useEffect, useState } from "react";
-import { get } from "../actions/movimentacoes/get";
+import { getMovimentacoes } from "../actions/movimentacoes/get";
 
 interface MovimentacaoDataProps {
     movimentacoes:{
@@ -26,7 +26,7 @@ export function MovimentacaoData({ movimentacoes, categorias }: MovimentacaoData
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const data = await get(filter.categoria, Number(filter.mes), page)
+                const data = await getMovimentacoes(filter.categoria, Number(filter.mes), page)
                 setFilteredMovimentacoes(data.content)
                 setTotalPages(data.totalPages)
             } catch (error) {
